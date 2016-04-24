@@ -1,0 +1,111 @@
+<h1><a href="/">Sabretache</a></h1>
+
+<section class="login">
+  <p>Let's make some bags.</p>
+  <p class="storage-notice"></p>
+  <p class="collections-downloaded"></p>
+  <button class="next" id="next-start" autofocus>Next</button>
+</section>
+
+<section class="title">
+  <p>What's the tile of the collection? Optionally, you can provide a description.</p>
+  <fieldset>
+    <label>Title:</label>
+    <input class="title" id="title-input" type="text" required/>
+  </fieldset>
+
+
+  <fieldset>
+    <label>Provide a Description:</label>
+    <textarea class="description" id="description-input"></textarea>
+  </fieldset>
+
+  <button class="previous">Previous</button>
+  <button class="next" id="next-title" autofocus>Next</button>
+
+</section>
+
+<section class="file-types">
+  <p>Click 'View Directories' to select what files you would like to send.</p>
+  <ul id="filetree">
+    <div class="controls">
+      <span class="control-label">Select All</span>
+      <input class="select-all" type="checkbox"></input>
+
+    </div>
+  </ul>
+  <button class="explore-dir" data-remote-root="<%= Remote_root %>">View Directories</button>
+  <button class="previous">Previous</button>
+  <button class="next" id="next-dirs" autofocus>Next</button>
+</section>
+
+<section class="downloading">
+  <p class="ok-notice">Click OK to download the collection.</p>
+  <progress class="download-progress"></progress>
+  <p class="download-notice">The collection was downloaded. You can view the details below.
+    </br>
+    <i class="fa fa-check" aria-hidden="true"></i>
+
+  </p>
+  <button class="previous">Previous</button>
+  <button class="submit" id="ok-download">OK</button>
+  <button class="next">Next</button>
+</section>
+
+<section class="fits-creation">
+  <p class="fits-notice">Click OK to run the
+    <a href="http://projects.iq.harvard.edu/fits/home">File Information Tool Set (FITS)</a> utility on the collection
+  </p>
+  <p class="fits-results">FITS metadata has been created.
+    </br>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </p>
+  <p class="fits-error">There was an error running fits on the collection</p>
+  <button class="run-fits" id="ok-fits">OK</button>
+  <button class="next">Next</button>
+</section>
+
+<section class="bagging">
+  <p class="bag-notice">Click OK to make the bags. </p>
+  <progress class="bag-progress"></progress>
+  <p class="bag-results">The bags were created sucessfully.
+    </br>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </p>
+  <p class="bag-error"></p>
+  <button class="bag" id="ok-bag">OK</button>
+  <button class="next">Next</button>
+</section>
+
+<section class="tarring">
+  <p class="tarring-notice">Click OK to tar the bags. </p>
+  <progress class="tar-progress"></progress>
+  <p class="tarring-results">The bag files have been tarred successfully.
+    </br>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </p>
+  <button class="tar" id="ok-tar" autofocus>OK</button>
+  <button class="next">Next</button>
+
+</section>
+
+<section class="uploading">
+  <p class="upload-notice">
+    Click OK to upload the bag to your Amazon S3 receiving bucket.
+  </p>
+  <progress class="upload-progress"></progress>
+  <p class="upload-results">The bags were successfully uploaded.</p>
+
+  </br>
+
+  <p class="upload-error">There was an error uploading the bags.</p>
+  <button class="upload" autofocus>OK</button>
+
+</section>
+
+
+<section class="done">
+
+</section>
+
+<pre class="console-output"></pre>

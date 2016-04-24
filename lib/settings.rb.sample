@@ -1,0 +1,25 @@
+# Settings
+Username = 'admin'
+Password = 'admin'
+# -- Local server settings
+STORAGE_DIR = ''
+FITS_location = ''
+BagIt_location = ''
+
+# -- Institutional Settings 
+Source_org = ''
+Institution = ''
+
+# -- Remote server details 
+Remote_server = ''
+Remote_user = ''
+Remote_root = ''
+Remote_password = ''
+Includes_default = ''
+
+# -- AWS S3 details
+S3_url = ''
+S3_access_id = ''
+S3_secret_key = ''
+S3_bucket_name = ''
+S3_region = ''

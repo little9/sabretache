@@ -1,0 +1,164 @@
+﻿html,body,form {
+
+    height:100%;
+}
+
+p {
+    margin-bottom:3%;
+}
+a {
+    color: #414A4C;
+    text-decoration:none;
+}
+body {
+    color:darkslategrey;
+    margin:0;
+    padding:0;
+    background:#F8F8FF;
+    font-family:"Helvetica Neue", "Helvetica", sans-serif;
+}
+
+h1 {
+    padding:1%;
+    margin:0;
+    background: #252525;
+    font-size:2em;
+}
+h1 a {
+    color: #F8F8FF;
+}
+
+section {
+    color: #414A4C;
+    padding:1%;
+    margin-top:2.5%;
+    text-align:center;
+    width:100%;
+    display:inline-block;
+    font-size:1.9em;
+    vertical-align:top;
+    
+}
+
+button {
+    margin-top:1%;
+    font-size:large;
+}
+
+button:active {
+    border:0;
+    position:relative;
+    top: 2px;
+}
+
+progress {
+    display:none;
+}
+
+
+label {
+    display:block;
+    margin-top:1%;
+}
+
+.next {
+    display:none;
+}
+
+.previous {
+    display:none;
+}
+
+.console-output {
+    display:none;
+    color:whitesmoke;
+    padding:1%;
+    margin-top:2.5%;
+    background:darkslategrey;
+    margin-right:5%;
+    margin-left:5%;
+    font-size:1.9em;
+    vertical-align:top;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+}
+
+
+
+input[type=checkbox], input[type=radio] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+}
+input[type=radio] {
+    bottom: 2px;
+}
+
+#filetree {
+    text-align: left;
+    margin: 5%;
+    border: 2px solid;
+    padding: 2%;
+    font-size: .6em;
+}
+
+ul {
+    padding:0;
+    margin:0;
+    font-weight:bold;
+    text-indent:2%;
+}
+
+ul li {
+    font-weight:normal;
+    padding-left: 1em;
+}
+
+.download-results {
+    display:none;
+}
+
+.download-error {
+    display: none;
+}
+
+.fits-results {
+    display:none;
+
+}
+.fits-error {
+
+    display:none;
+}
+
+.bag-results {
+    display:none;
+}
+
+.bag-error {
+    display:none;
+}
+
+.tarring-results {
+    display:none;
+}
+
+.upload-error {
+    display:none;
+}
+
+.upload-results {
+
+    display:none;
+}
+
+.file-selected {
+background: lemonchiffon;
+}
+
+body .fa {
+display: inline;
+}
+
+.controls {
+display: none;
+}
