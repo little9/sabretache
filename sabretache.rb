@@ -6,7 +6,7 @@ require 'time'
 require 'freespace'
 require 'sftp_tree'
 require 'aws-sdk'
-
+require 'logger'
 require_relative './lib/fits'
 require_relative './lib/settings'
 require_relative './lib/download'
@@ -20,6 +20,17 @@ module Sabretache
     use Rack::Auth::Basic, "Restricted Area" do |username, password|
       username == Username and password == Password
     end
+
+    Dir.mkdir('logs') unless File.exist?('logs')
+
+    $logger = Logger.new('logs/common.log','weekly')
+    $logger.level = Logger::WARN
+
+    # Spit stdout and stderr to a file during production
+    # in case something goes wrong
+    $stdout.reopen("logs/output.log", "w")
+    $stdout.sync = true
+    $stderr.reopen($stdout)
 
     get '/' do
       erb :index, :layout => :main
@@ -100,6 +111,27 @@ module Sabretache
         collection = JSON.parse(params[:response])
         archiver = Tar.new
         archiver.tar(collection, out)
+      end
+    end
+
+    post '/quickupload' do
+      stream do |out|
+      collection = JSON.parse(params[:response])
+
+      downloader = Download.new
+      downloader.download(collection, out)
+      fits_command = Fits.new
+      out << process(fits_command.create_fits(collection))
+      bagger = Bag.new
+      bagger.bag_files(collection, out)
+      archiver = Tar.new
+      archiver.tar(collection, out)
+      s3 = Aws::S3::Resource.new(region: S3_region, credentials: Aws::Credentials.new(S3_access_id, S3_secret_key))
+      tarred_bags = Dir.chdir("#{STORAGE_DIR}#{collection['collection']}_bags") { Dir.glob('**/*.tar') }
+      tarred_bags.each do |bag|
+        obj = s3.bucket(S3_bucket_name).object(bag)
+        obj.upload_file(bag)
+      end
       end
     end
 

@@ -2,8 +2,8 @@ require_relative 'settings'
 module Sabretache
 class Download
 
- def download(params, out)
-      download_info = JSON.parse(params[:response])
+ def download(download_info, out)
+
 
       if download_info['fileTypes']
         file_types = download_info['fileTypes'].split(',')
