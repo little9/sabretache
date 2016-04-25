@@ -4,7 +4,7 @@ module Sabretache
 
     def create_fits(collection)
 
-      collection_name = collection['repository'] + collection['collection']
+      collection_name = collection['collection']
       mkdir_parent_command = "mkdir #{STORAGE_DIR}#{collection_name}_metadata"
       mkdir_command = "mkdir #{STORAGE_DIR}#{collection_name}_metadata/fits"
 

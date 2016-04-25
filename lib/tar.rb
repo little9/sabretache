@@ -3,11 +3,9 @@ module Sabretache
   class Tar
 
     def tar(collection, out)
-      collection_name = collection['repository'] + collection['collection']
-
+      collection_name = collection['collection']
       #to-do: tar the metadata bag
-
-      Dir.chdir(STORAGE_DIR + collection_name + "_bags")
+      Dir.chdir(STORAGE_DIR + collection_name + '_bags')
 
       entries = Dir.entries(Dir.pwd).select {|entry| File.directory? File.join(Dir.pwd,entry) and !(entry =='.' || entry == '..') }
 

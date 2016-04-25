@@ -56,6 +56,7 @@ $(document).ready(function () {
         $('.console-output').hide();
         downloader.fileTypes = $('.file-types-selection').val();
         downloader.title = $('input.title').val();
+        downloader.collection = $('input.title').val().split(' ').join('_');
         downloader.description = $('input.description').val();
         downloader.files = downloader.filesChecked();
     });

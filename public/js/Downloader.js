@@ -1,10 +1,8 @@
 var timerId = 0;
 function Downloader() {
-    // Basic structure that will be be used to get the collection from the archive server
-    this.repository = '';
-    this.collection = '';
     this.title = '';
-    this.description = ''
+    this.description = '';
+    this.collection = '';
 }
 Downloader.prototype = new Downloader();
 Downloader.prototype.json = function () {

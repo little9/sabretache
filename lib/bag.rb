@@ -3,11 +3,11 @@ module Sabretache
 
     def bag_files(params, out)
       collection = JSON.parse(params[:response])
-      collection_name = collection['repository'] + collection['collection']
+      collection_name = collection['collection']
       collection_title = collection['title']
       collection_desc = collection['description']
 
-      bag_name =  collection['repository'] + "_" + collection['collection']
+      bag_name =  collection['collection']
 
       metadata_bag_command = "#{BagIt_location} create \"#{STORAGE_DIR}#{collection_name}_bags/#{Institution}.#{collection_name}_metadata\" \"#{STORAGE_DIR}#{collection_name}_metadata\""
 

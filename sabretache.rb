@@ -105,9 +105,8 @@ module Sabretache
 
     post '/upload' do
       collection = JSON.parse(params[:response])
-      collection_name = collection['repository'] + collection['collection']
       s3 = Aws::S3::Resource.new(region: S3_region, credentials: Aws::Credentials.new(S3_access_id, S3_secret_key))
-      tarred_bags = Dir.chdir("#{STORAGE_DIR}#{collection_name}_bags") { Dir.glob('**/*.tar') }
+      tarred_bags = Dir.chdir("#{STORAGE_DIR}#{collection['collection']}_bags") { Dir.glob('**/*.tar') }
       tarred_bags.each do |bag|
         obj = s3.bucket(S3_bucket_name).object(bag)
         obj.upload_file(bag)
