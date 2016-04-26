@@ -3,7 +3,7 @@ module Sabretache
 class Download
 
  def download(download_info, out)
-
+      p download_info
 
       if download_info['fileTypes']
         file_types = download_info['fileTypes'].split(',')
@@ -20,7 +20,7 @@ class Download
       
       download_file_list.each do |file|
 
-        rsync_command = "rsync -rPuRc #{Remote_user}@#{Remote_server}:#{file} #{STORAGE_DIR}/#{folder_name} --include=#{Includes_default}"
+        rsync_command = "rsync -rPuRc #{Remote_user}@#{Remote_server}:#{file} #{STORAGE_DIR}#{folder_name} --include=#{Includes_default}"
 
         IO.popen(rsync_command, 'r') do |io|
           while line=io.gets

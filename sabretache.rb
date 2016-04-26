@@ -70,8 +70,9 @@ module Sabretache
       # For the command to work you must have a user account on the archive server with SSH keys set up
       # https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
       stream do |out|
+        collection = JSON.parse(params[:response])
         downloader = Download.new
-        downloader.download(params, out)
+        downloader.download(collection, out)
       end
     end
 
